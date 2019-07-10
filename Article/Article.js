@@ -146,17 +146,15 @@ const data = [
 */
 const articles = document.querySelector(".articles");
 
-// articles.appendChild(createComponent());
-
 // Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 data.forEach(data => {
   articles.appendChild(
     createComponent(
       data.title,
       data.date,
-      data.para1,
-      data.para2,
-      data.para3,
+      data.firstParagraph,
+      data.secondParagraph,
+      data.thirdParagraph,
       data.button
     )
   );
@@ -196,12 +194,14 @@ function createComponent(title, date, para1, para2, para3, button) {
   expandButton.textContent = "Expand";
   articleTitle.textContent = title;
   articleDate.textContent = date;
-  (articleContent.textContent = contentPara1), contentPara2, contentPara3;
+  contentPara1.textContent = para1;
+  contentPara2.textContent = para2;
+  contentPara3.textContent = para3;
 
   // Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
   //button events
   expandButton.addEventListener("click", event => {
-    expandButton.classList.toggle("article-open");
+    article.classList.toggle("article-open");
   });
 
   // Step 3: return the entire component.
